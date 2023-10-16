@@ -1,7 +1,24 @@
+import datetime
 from datetime import datetime
+import fnmatch
+import os
 
 def list():
-    print('Список заметок');
+    print('Список заметок:');
+    listOfFiles = os.listdir(".")
+    pattern = "*.csv"
+    for entry in listOfFiles:
+        if fnmatch.fnmatch(entry, pattern):
+            #print(entry);
+            file = open(entry, "r")
+            content = file.read()
+            file.close()
+            #print("content:", content)
+            parts = content.split(";")
+            #print("parts:", parts)
+            head = parts[0]
+            print(entry[0:-4], head)
+
 
 def create(head, body):
     print("head: ", head)
@@ -9,17 +26,18 @@ def create(head, body):
     current_datetime = datetime.now()
     # print("текущее время:", current_datetime)
     id = current_datetime.strftime("%Y%m%d%H%M%S")
+    date = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
     filename = id + '.csv'
     file = open(filename, "w")
     file.write(head + ';')
-    file.write(id + ';')
+    file.write(date + ';')
     file.write(body + ';')
     file.close()
     
 # 20231016230000
 # 20231016230000.csv
-def read():
-    print('');
+def read(id):
+    
 
 def update():
     print('');
