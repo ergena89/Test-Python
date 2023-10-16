@@ -47,8 +47,9 @@ def read(id):
     print("Заголовок", head)
     print("Содержание ", body) 
 
-def update():
-    print('');
+def update(id, head, body):
+    
 
-def delete():
-    print('');
+def delete(id):
+    os.remove(id + ".csv")
+    print(f"Заметка № {id} удалена ")

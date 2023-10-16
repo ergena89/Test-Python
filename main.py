@@ -21,10 +21,10 @@ if len(sys.argv) > 1:
             break
 
         elif sys.argv[arg] == "update":
-            if len(sys.argv) < 3:
-                print("Для изменения заметки, необходимо указать id")
+            if len(sys.argv) < 5:
+                print("Для изменения заметки, необходимо указать id, заголовок, тело заметки")
             else:
-                notes.update(sys.argv[2])
+                notes.update(sys.argv[2], sys.argv[3], sys.argv[4])
             break
 
         elif sys.argv[arg] == "delete":
