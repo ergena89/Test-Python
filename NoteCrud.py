@@ -19,7 +19,6 @@ def list():
             head = parts[0]
             print(entry[0:-4], head)
 
-
 def create(head, body):
     print("head: ", head)
     print("body: ", body)
@@ -48,7 +47,11 @@ def read(id):
     print("Содержание ", body) 
 
 def update(id, head, body):
-    
+    file = open(id + ".csv", "w")
+    file.write(head + ';')
+    file.write(body + ';')
+    file.close()
+    print(f"Заметка № {id} обновлена");
 
 def delete(id):
     os.remove(id + ".csv")
