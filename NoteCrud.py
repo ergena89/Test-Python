@@ -37,7 +37,15 @@ def create(head, body):
 # 20231016230000
 # 20231016230000.csv
 def read(id):
-    
+    file = open(id + ".csv", "r")
+    content = file.read()
+    file.close()
+    parts = content.split(";")
+    head = parts[0]
+    body = parts[2]
+    print("Заметка №", id)
+    print("Заголовок", head)
+    print("Содержание ", body) 
 
 def update():
     print('');

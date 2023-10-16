@@ -37,4 +37,3 @@ if len(sys.argv) > 1:
             print(" other command then list was send")
 
 actions = ["list", "create", "read", "update", "delete"]
-print('end')
