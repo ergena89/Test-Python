@@ -6,7 +6,14 @@ if len(sys.argv) > 1:
     for arg in range(1, len(sys.argv)):
         print(sys.argv[arg])
         if sys.argv[arg] == "list":
-            notes.list()
+            if len(sys.argv) == 2:
+                notes.list()
+            elif len(sys.argv) == 3:
+                filter = sys.argv[2]
+                notes.list(filter)                
+            else:
+                print("Для команды list можно указать 1 аргумент (дату) или не указывать вообще")
+            break            
         elif sys.argv[arg] == "create":
             if len(sys.argv) < 4:
                 print("Для создания заметки ввести: заголовок, тело заметки.")
